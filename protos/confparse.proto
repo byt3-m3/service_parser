@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+/*
+This API will be used for Configuration Parsing implementing the CiscoConfParse Module.
+*/
+
+service Parser {
+    rpc find_line (SingleLineSpec) returns (Response); // Searches for linespec and returns a list of matches
+    rpc find_blocks (SingleLineSpec) returns (Response); // Searches for linespec and returns a list of matches
+    rpc find_parents_w_child (MultiLineSpec) returns (Response); // Searches for linespec and returns a list of matches
+    rpc find_parents_wo_child (MultiLineSpec) returns (Response); // Searches for linespec and returns a list of matches
+}
+
+// This the current request types for the Parse service
+enum RequestType {
+    find_line = 0;
+    find_parents_w_child = 1;
+    find_parents_wo_child = 2;
+    find_blocks = 3;
+}
+
+// Generic Response Message.
+message Response {
+    string id = 1;
+    string data = 2;
+    string msg = 3;
+    int32 status = 4;
+}
+
+// Used for request requiring a single line spec data model.
+message SingleLineSpec {
+    string line_spec = 1;
+    string delim = 2;
+    string config = 3;
+    RequestType type = 4;
+
+}
+
+// Used for request requiring a multi line spec data model.
+message MultiLineSpec {
+    string parent_spec = 1;
+    string child_spec = 2;
+    string delim = 3;
+    string config = 4;
+    RequestType type = 5;
+}
