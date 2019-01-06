@@ -1,7 +1,7 @@
 from configparser.client import ParserClient
 
 if __name__ == "__main__":
-    c = ParserClient(host="192.168.1.115", port="50052")
+    c = ParserClient(host="192.168.99.100", port="50052")
 
     c.load_config("files/config.conf")
 

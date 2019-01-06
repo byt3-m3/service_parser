@@ -6,7 +6,7 @@ from concurrent import futures
 import grpc
 
 from configparser import Parser
-from configparser import confparse_pb2_grpc
+from configparser.protobufs import confparse_pb2_grpc
 
 parser = Parser()
 format = "MSG: %(message)s == LEVEL: %(levelname)s == TIME: %(asctime)s == Logger: %(name)s"

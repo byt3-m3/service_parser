@@ -1,4 +1,4 @@
-from configparser import confparse_pb2
+from configparser.protobufs import confparse_pb2
 
 
 def make_response(data=None, msg=None, status=None):

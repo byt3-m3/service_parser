@@ -1,6 +1,6 @@
 import logging
 
-from configparser import confparse_pb2_grpc, confparse_pb2
+from configparser.protobufs import confparse_pb2, confparse_pb2_grpc
 from configparser.controllers.parser_controller import ParserController
 from .tools import make_response, prep_config
 
