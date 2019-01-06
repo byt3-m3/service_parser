@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+
+  service_confparser_dev:
+    image: cbaxter1988/service_confparser:dev
+    ports:
+      - 50052:50052
+    environment:
+      - DB_URL=http://192.168.1.128:5984
+      - DB=192.168.1.128
+      - APP_PORT=50052
+      - DB_USER=admin
+      - DB_PASS=pimpin12
+      - APP_TIMEOUT=86400
+
+    volumes:
+      - ./.:/app
+
+    command: python /app/app.py
+
+
+#  service_confparser_build:
+#    image: cbaxter1988/service_confparser:test
+#    ports:
+#      - 50052:50052
+#
+#    environment:
+#      - DB_URL=http://192.168.1.128:5984
+#      - DB=192.168.1.128
+#      - APP_PORT=50052
+#      - DB_USER=admin
+#      - DB_PASS=pimpin12
+#
+#    command: python /app/app.py
